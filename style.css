@@ -7,11 +7,18 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: auto;
-    border: 1px solid black;
-    /* padding-top: 30%; */
 }
  #board > div {
-     border: 1px solid black;
+     
      font-size: 10vh;
      text-align: center;
+ }
+ #board > div:nth-child(3n-1){
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+ }
+ /* both pseudo-selectors must be satisfied, leaving just the 4-6 range */
+ #board > div:nth-child(n+4):nth-child(-n+6){
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
  }
