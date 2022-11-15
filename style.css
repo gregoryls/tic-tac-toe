@@ -1,0 +1,17 @@
+body {
+    background-color: rgb(133, 132, 132);
+}
+
+#board {
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: auto;
+    border: 1px solid black;
+    /* padding-top: 30%; */
+}
+ #board > div {
+     border: 1px solid black;
+     font-size: 10vh;
+     text-align: center;
+ }
