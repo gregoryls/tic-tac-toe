@@ -12,6 +12,7 @@ body {
      
      font-size: 10vh;
      text-align: center;
+     cursor: pointer;
  }
  #board > div:nth-child(3n-1){
     border-left: 3px solid black;

@@ -9,6 +9,7 @@ gameBoard = (() =>{
     };
     renderGame();
     return {
-        renderGame
+        renderGame,
+        gameStatus,
     }
 })();
