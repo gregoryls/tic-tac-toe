@@ -24,3 +24,14 @@ const gameBoard = (() =>{
 
 // https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
 // read this ^^^
+
+const gametest = document.querySelectorAll('#board div');
+
+gametest.forEach( (currentValue)=>{
+    // console.log(currentValue)
+    currentValue.addEventListener('click', () =>{
+        let x = currentValue.closest('div');
+        console.log(x);
+        //switch statement to 
+    });
+})
