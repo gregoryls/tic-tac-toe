@@ -1,5 +1,6 @@
 const gameBoard = (() =>{
-    let gameStatus = ['X','O','X','O','X','O','X','O','X'];
+    let gameStatus = ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
+        '\u00A0','\u00A0','\u00A0','\u00A0'];
     
     const renderGame = () =>{
         
