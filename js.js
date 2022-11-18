@@ -11,10 +11,12 @@ const gameBoard = (() =>{
     renderGame();
     const updateGameStatus = (newArray) =>{
         gameStatus = newArray;
+        renderGame();
     }
     return {
         renderGame,
         updateGameStatus,
+        
     }
 })();
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
