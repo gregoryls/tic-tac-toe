@@ -33,6 +33,36 @@ gametest.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
         let x = currentValue.closest('div');
         console.log(x.id);
+
+        switch (x.id){
+            case 'cell1':
+                gameBoard.updateGameStatus(0,'X');
+                break;
+            case 'cell2':
+                gameBoard.updateGameStatus(1,'X');
+                break;
+            case 'cell3':
+                gameBoard.updateGameStatus(2,'X');
+                break;
+            case 'cell4':
+                gameBoard.updateGameStatus(3,'X');
+                break;
+            case 'cell5':
+                gameBoard.updateGameStatus(4,'X');
+                break;
+            case 'cell6':
+                gameBoard.updateGameStatus(5,'X');
+                break;
+            case 'cell7':
+                gameBoard.updateGameStatus(6,'X');
+                break;
+            case 'cell8':
+                gameBoard.updateGameStatus(7,'X');
+                break;
+            case 'cell9':
+                gameBoard.updateGameStatus(8,'X');
+                break;
+        }
         //switch statement to 
     });
 })
