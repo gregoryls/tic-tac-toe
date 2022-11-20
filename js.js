@@ -10,8 +10,8 @@ const gameBoard = (() =>{
         
     };
     renderGame();
-    const updateGameStatus = (newArray) =>{
-        gameStatus = newArray;
+    const updateGameStatus = (index,newValue) =>{
+        gameStatus[index] = newValue;
         renderGame();
     }
     return {
@@ -32,7 +32,7 @@ gametest.forEach( (currentValue)=>{
     // console.log(currentValue)
     currentValue.addEventListener('click', () =>{
         let x = currentValue.closest('div');
-        console.log(x);
+        console.log(x.id);
         //switch statement to 
     });
 })
