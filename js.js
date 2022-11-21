@@ -44,31 +44,49 @@ const gameplay = (() => {
 
         switch (x.id){
             case 'cell1':
+                if (takenSquareTracker.includes(0)) break;
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
+                takenSquareTracker.push(0);
                 break;
             case 'cell2':
+                if (takenSquareTracker.includes(1)) break;
                 gameBoard.updateGameStatus(1,gameplay.currentPlayer());
+                takenSquareTracker.push(1);
                 break;
             case 'cell3':
+                if (takenSquareTracker.includes(2)) break;
                 gameBoard.updateGameStatus(2,gameplay.currentPlayer());
+                takenSquareTracker.push(2);
                 break;
             case 'cell4':
+                if (takenSquareTracker.includes(3)) break;
                 gameBoard.updateGameStatus(3,gameplay.currentPlayer());
+                takenSquareTracker.push(3);
                 break;
             case 'cell5':
+                if (takenSquareTracker.includes(4)) break;
                 gameBoard.updateGameStatus(4,gameplay.currentPlayer());
+                takenSquareTracker.push(4);
                 break;
             case 'cell6':
+                if (takenSquareTracker.includes(5)) break;
                 gameBoard.updateGameStatus(5,gameplay.currentPlayer());
+                takenSquareTracker.push(5);
                 break;
             case 'cell7':
+                if (takenSquareTracker.includes(6)) break;
                 gameBoard.updateGameStatus(6,gameplay.currentPlayer());
+                takenSquareTracker.push(6);
                 break;
             case 'cell8':
+                if (takenSquareTracker.includes(7)) break;
                 gameBoard.updateGameStatus(7,gameplay.currentPlayer());
+                takenSquareTracker.push(7);
                 break;
             case 'cell9':
+                if (takenSquareTracker.includes(8)) break;
                 gameBoard.updateGameStatus(8,gameplay.currentPlayer());
+                takenSquareTracker.push(8);
                 break;
         }
     });
