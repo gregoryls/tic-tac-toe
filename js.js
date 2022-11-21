@@ -34,20 +34,9 @@ const gameplay = (() => {
             return 'O';
         }
     }
-    return{
-        currentPlayer,
-    }
+    const gametest = document.querySelectorAll('#board div');
 
-})();
-// gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
-// gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
-
-// https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
-// read this ^^^
-
-const gametest = document.querySelectorAll('#board div');
-
-gametest.forEach( (currentValue)=>{
+    gametest.forEach( (currentValue)=>{
     // console.log(currentValue)
     currentValue.addEventListener('click', () =>{
         let x = currentValue.closest('div');
@@ -84,3 +73,15 @@ gametest.forEach( (currentValue)=>{
         }
     });
 })
+
+    return{
+        currentPlayer,
+    }
+
+})();
+// gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
+// gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
+
+// https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
+// read this ^^^
+
