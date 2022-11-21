@@ -20,6 +20,25 @@ const gameBoard = (() =>{
         
     }
 })();
+
+const gameplay = (() => {
+    let takenSquareTracker = [];
+    let currentToken = 'X';
+    const currentPlayer = () => {
+        if (currentToken === 'X'){
+            currentToken = 'O';
+            return 'X';
+        }
+        if (currentToken === 'O'){
+            currentToken = 'X';
+            return 'O';
+        }
+    }
+    return{
+        currentPlayer,
+    }
+
+})();
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
 // gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
 
@@ -36,33 +55,32 @@ gametest.forEach( (currentValue)=>{
 
         switch (x.id){
             case 'cell1':
-                gameBoard.updateGameStatus(0,'X');
+                gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 break;
             case 'cell2':
-                gameBoard.updateGameStatus(1,'X');
+                gameBoard.updateGameStatus(1,gameplay.currentPlayer());
                 break;
             case 'cell3':
-                gameBoard.updateGameStatus(2,'X');
+                gameBoard.updateGameStatus(2,gameplay.currentPlayer());
                 break;
             case 'cell4':
-                gameBoard.updateGameStatus(3,'X');
+                gameBoard.updateGameStatus(3,gameplay.currentPlayer());
                 break;
             case 'cell5':
-                gameBoard.updateGameStatus(4,'X');
+                gameBoard.updateGameStatus(4,gameplay.currentPlayer());
                 break;
             case 'cell6':
-                gameBoard.updateGameStatus(5,'X');
+                gameBoard.updateGameStatus(5,gameplay.currentPlayer());
                 break;
             case 'cell7':
-                gameBoard.updateGameStatus(6,'X');
+                gameBoard.updateGameStatus(6,gameplay.currentPlayer());
                 break;
             case 'cell8':
-                gameBoard.updateGameStatus(7,'X');
+                gameBoard.updateGameStatus(7,gameplay.currentPlayer());
                 break;
             case 'cell9':
-                gameBoard.updateGameStatus(8,'X');
+                gameBoard.updateGameStatus(8,gameplay.currentPlayer());
                 break;
         }
-        //switch statement to 
     });
 })
