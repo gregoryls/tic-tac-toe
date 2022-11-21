@@ -37,12 +37,11 @@ const gameplay = (() => {
     const gametest = document.querySelectorAll('#board div');
 
     gametest.forEach( (currentValue)=>{
-    // console.log(currentValue)
     currentValue.addEventListener('click', () =>{
-        let x = currentValue.closest('div');
-        console.log(x.id);
+        let gameCell = currentValue.closest('div');
+        console.log(gameCell.id);
 
-        switch (x.id){
+        switch (gameCell.id){
             case 'cell1':
                 if (takenSquareTracker.includes(0)) break;
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
