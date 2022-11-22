@@ -96,6 +96,12 @@ const gameplay = (() => {
     }
 
 })();
+
+const player = (name) =>{
+    let wins = 0;
+return {name, wins};
+}
+const player1 = player('john doe');
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
 // gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
 
