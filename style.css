@@ -1,9 +1,18 @@
 body {
     background-color: rgb(133, 132, 132);
+    
+    
+}
+#gridHelp {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+h1 {
+    text-align: center;
 }
 
 #board {
-    width: 30%;
+    width: 30vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     margin: auto;
@@ -22,4 +31,10 @@ body {
  #board > div:nth-child(n+4):nth-child(-n+6){
     border-top: 3px solid black;
     border-bottom: 3px solid black;
+ }
+
+ #resetDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
