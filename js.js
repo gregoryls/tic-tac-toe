@@ -13,9 +13,12 @@ const gameBoard = (() =>{
     const updateGameStatus = (index,newValue) =>{
         gameStatus[index] = newValue;
         renderGame();
+        //check if game is won function goes here
     }
 
-    let winningPositions = [
+    
+    const checkGameWon = () => {
+        const winningPositions = [
         //rows
         [gameStatus[0],gameStatus[1],gameStatus[2]],
         [gameStatus[3],gameStatus[4],gameStatus[5]],
@@ -29,15 +32,18 @@ const gameBoard = (() =>{
         //diagonals
         [gameStatus[0],gameStatus[4],gameStatus[8]],
         [gameStatus[2],gameStatus[4],gameStatus[6]],
-    ];
-    console.log(winningPositions)
-
-    // winningPositions.push([].push(gameStatus[0],gameStatus[1],gameStatus[2]));
+        ];
+        
+        console.log(gameStatus)
+        console.log(winningPositions);
+        
+    }
+    
     
     return {
         renderGame,
         updateGameStatus,
-        
+        checkGameWon,
     }
 })();
 
