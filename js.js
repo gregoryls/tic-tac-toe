@@ -14,6 +14,26 @@ const gameBoard = (() =>{
         gameStatus[index] = newValue;
         renderGame();
     }
+
+    let winningPositions = [
+        //rows
+        [gameStatus[0],gameStatus[1],gameStatus[2]],
+        [gameStatus[3],gameStatus[4],gameStatus[5]],
+        [gameStatus[6],gameStatus[7],gameStatus[8]],
+
+        //columns
+        [gameStatus[0],gameStatus[3],gameStatus[6]],
+        [gameStatus[1],gameStatus[4],gameStatus[7]],
+        [gameStatus[2],gameStatus[5],gameStatus[8]],
+
+        //diagonals
+        [gameStatus[0],gameStatus[4],gameStatus[8]],
+        [gameStatus[2],gameStatus[4],gameStatus[6]],
+    ];
+    console.log(winningPositions)
+
+    // winningPositions.push([].push(gameStatus[0],gameStatus[1],gameStatus[2]));
+    
     return {
         renderGame,
         updateGameStatus,
