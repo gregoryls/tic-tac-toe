@@ -39,10 +39,15 @@ const gameBoard = (() =>{
         return winningPositions;
     }
     const checkGameWin = () =>{
-        console.log(getWinningPositions());
+        // console.log(getWinningPositions());
         // const checkWinningTokens = (token) => token === position[0];
         getWinningPositions().forEach(position => {
-            console.log(position.every(token => token === position[0]));
+            const win = position.every(token => token === position[0]);
+            // console.log(win);
+            // console.log(typeof(win));
+            if (win) {
+                console.log('yay');
+            }
         })
         // turn this into checker function with a foreach => .every() system
         // https://stackoverflow.com/questions/14832603/check-if-all-values-of-array-are-equal
@@ -82,46 +87,55 @@ const gameplay = (() => {
                 if (takenSquareTracker.includes(0)) break;
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 takenSquareTracker.push(0);
+                gameBoard.checkGameWin();
                 break;
             case 'cell2':
                 if (takenSquareTracker.includes(1)) break;
                 gameBoard.updateGameStatus(1,gameplay.currentPlayer());
                 takenSquareTracker.push(1);
+                gameBoard.checkGameWin();
                 break;
             case 'cell3':
                 if (takenSquareTracker.includes(2)) break;
                 gameBoard.updateGameStatus(2,gameplay.currentPlayer());
                 takenSquareTracker.push(2);
+                gameBoard.checkGameWin();
                 break;
             case 'cell4':
                 if (takenSquareTracker.includes(3)) break;
                 gameBoard.updateGameStatus(3,gameplay.currentPlayer());
                 takenSquareTracker.push(3);
+                gameBoard.checkGameWin();
                 break;
             case 'cell5':
                 if (takenSquareTracker.includes(4)) break;
                 gameBoard.updateGameStatus(4,gameplay.currentPlayer());
                 takenSquareTracker.push(4);
+                gameBoard.checkGameWin();
                 break;
             case 'cell6':
                 if (takenSquareTracker.includes(5)) break;
                 gameBoard.updateGameStatus(5,gameplay.currentPlayer());
                 takenSquareTracker.push(5);
+                gameBoard.checkGameWin();
                 break;
             case 'cell7':
                 if (takenSquareTracker.includes(6)) break;
                 gameBoard.updateGameStatus(6,gameplay.currentPlayer());
                 takenSquareTracker.push(6);
+                gameBoard.checkGameWin();
                 break;
             case 'cell8':
                 if (takenSquareTracker.includes(7)) break;
                 gameBoard.updateGameStatus(7,gameplay.currentPlayer());
                 takenSquareTracker.push(7);
+                gameBoard.checkGameWin();
                 break;
             case 'cell9':
                 if (takenSquareTracker.includes(8)) break;
                 gameBoard.updateGameStatus(8,gameplay.currentPlayer());
                 takenSquareTracker.push(8);
+                gameBoard.checkGameWin();
                 break;
         }
     });
