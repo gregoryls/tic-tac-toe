@@ -17,7 +17,7 @@ const gameBoard = (() =>{
     }
 
     
-    const checkGameWon = () => {
+    const getWinningPositions = () => {
         const winningPositions = [
         //rows
         [gameStatus[0],gameStatus[1],gameStatus[2]],
@@ -33,17 +33,27 @@ const gameBoard = (() =>{
         [gameStatus[0],gameStatus[4],gameStatus[8]],
         [gameStatus[2],gameStatus[4],gameStatus[6]],
         ];
-        
-        console.log(gameStatus)
-        console.log(winningPositions);
-        
+
+        // console.log(gameStatus)
+        // console.log(winningPositions);
+        return winningPositions;
+    }
+    const checkGameWin = () =>{
+        console.log(getWinningPositions());
+        // const checkWinningTokens = (token) => token === position[0];
+        getWinningPositions().forEach(position => {
+            console.log(position.every(token => token === position[0]));
+        })
+        // turn this into checker function with a foreach => .every() system
+        // https://stackoverflow.com/questions/14832603/check-if-all-values-of-array-are-equal
     }
     
     
     return {
         renderGame,
         updateGameStatus,
-        checkGameWon,
+        getWinningPositions,
+        checkGameWin,
     }
 })();
 
