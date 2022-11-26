@@ -42,7 +42,7 @@ const gameBoard = (() =>{
         // console.log(getWinningPositions());
         // const checkWinningTokens = (token) => token === position[0];
         getWinningPositions().forEach(position => {
-            const win = position.every(token => token === position[0]);
+            const win = position.every(token => token === position[0] && token != '\u00A0');
             // console.log(win);
             // console.log(typeof(win));
             if (win) {
