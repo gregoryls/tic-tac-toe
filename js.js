@@ -1,6 +1,8 @@
 const gameBoard = (() =>{
     let gameStatus = ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
         '\u00A0','\u00A0','\u00A0','\u00A0'];
+
+    let gameOver = false;
     
     const renderGame = () =>{
         
@@ -38,20 +40,24 @@ const gameBoard = (() =>{
         // console.log(winningPositions);
         return winningPositions;
     }
+    //TODO work on game-end logic (wins counter, draw victory line etc);
     const checkGameWin = () =>{
-        // console.log(getWinningPositions());
-        // const checkWinningTokens = (token) => token === position[0];
+        
         getWinningPositions().forEach(position => {
+            //check if a set winning position is all 'X' or 'O' excluding the blank character
             const win = position.every(token => token === position[0] && token != '\u00A0');
             // console.log(win);
             // console.log(typeof(win));
             if (win) {
                 console.log('yay');
+                gameOver = true;
+                console.log(gameOver);
             }
         })
-        // turn this into checker function with a foreach => .every() system
-        // https://stackoverflow.com/questions/14832603/check-if-all-values-of-array-are-equal
+        
     }
+
+    const getGameOverStatus = () => gameOver
     
     
     return {
@@ -59,6 +65,7 @@ const gameBoard = (() =>{
         updateGameStatus,
         getWinningPositions,
         checkGameWin,
+        getGameOverStatus,
     }
 })();
 
@@ -84,7 +91,7 @@ const gameplay = (() => {
 
         switch (gameCell.id){
             case 'cell1':
-                if (takenSquareTracker.includes(0)) break;
+                if (takenSquareTracker.includes(0) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 takenSquareTracker.push(0);
                 gameBoard.checkGameWin();
