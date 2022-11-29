@@ -49,7 +49,16 @@ const gameBoard = (() =>{
             // console.log(win);
             // console.log(typeof(win));
             if (win) {
+                if (position[0] === 'X'){
+                    player1.wins +=1;
+                    document.querySelector('#player1Wins').textContent = player1.wins
+                } 
+                if (position[0] === 'O'){
+                    player2.wins +=1;
+                    document.querySelector('#player2Wins').textContent = player2.wins
+                } 
                 console.log('yay');
+                console.log(win);
                 gameOver = true;
                 console.log(gameOver);
             }
@@ -160,6 +169,7 @@ const player = (name) =>{
 return {name, wins};
 }
 const player1 = player('john doe');
+const player2 = player('jane doe');
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
 // gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
 
