@@ -165,11 +165,18 @@ const gameplay = (() => {
 })();
 
 const player = (name) =>{
+    const setPlayerName = function (player) {
+        document.querySelector(`#${player}Name`).textContent = this.name;
+        
+    }
     let wins = 0;
-return {name, wins};
+return {name, wins, setPlayerName,};
 }
+//TODO consider wrapping this up inside somewhere else
 const player1 = player('john doe');
+player1.setPlayerName('player1');
 const player2 = player('jane doe');
+player2.setPlayerName('player2');
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
 // gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
 
