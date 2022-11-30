@@ -164,22 +164,36 @@ const gameplay = (() => {
 
 })();
 
-const player = (name) =>{
-    const setPlayerName = function (player) {
-        document.querySelector(`#${player}Name`).textContent = this.name;
+const player = (name,number) =>{
+    const setPlayerName = function (playerNumber) {
+        document.querySelector(`#player${playerNumber}Name`).textContent = this.name;
         
     }
     let wins = 0;
-return {name, wins, setPlayerName,};
+    this.number = number;
+return {name, number, wins, setPlayerName,};
 }
 //TODO consider wrapping this up inside somewhere else
-const player1 = player('john doe');
-player1.setPlayerName('player1');
-const player2 = player('jane doe');
-player2.setPlayerName('player2');
+const player1 = player('john doe',1);
+
+const player2 = player('jane doe',2);
+
 // gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
 // gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
-
+const playerSetup = (() => {
+    player1.setPlayerName(1);
+    player2.setPlayerName(2);
+    const userName = (player) =>{
+        player.name = prompt('Please Enter your name','Josh Gunson');
+        player.setPlayerName(player.number);
+    }
+    document.querySelector('#player1Name').addEventListener('click',() =>{
+        userName(player1)
+    });
+    document.querySelector('#player2Name').addEventListener('click',() =>{
+        userName(player2)
+    });
+})();
 // https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
 // read this ^^^
 
