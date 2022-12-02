@@ -196,4 +196,5 @@ const playerSetup = (() => {
 })();
 // https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
 // read this ^^^
+// TODO - consider a modal with instructions, how to change name etc.
 
