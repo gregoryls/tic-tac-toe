@@ -25,13 +25,14 @@ h1 {
 
 
      /* use this for diagonal line once game is won */
-     /* background: 
+     /* change to, 'to bottom' for horizontal wins, to left for vertical */
+     background: 
        linear-gradient(to top left,
            rgba(0,0,0,0) 0%,
            rgba(0,0,0,0) calc(50% - 2px),
            rgba(0,0,0,1) 50%,
            rgba(0,0,0,0) calc(50% + 2px),
-           rgba(0,0,0,0) 100%); */
+           rgba(0,0,0,0) 100%);
 
     /* background:linear-gradient(to bottom right, transparent calc(50% - 1px),  black calc(50% + 1px), black 50%, transparent 50%); */
  }
