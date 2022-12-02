@@ -164,6 +164,15 @@ const gameplay = (() => {
 
 })();
 
+const resetGame = (()=>{
+    const resetCells = ()=>{
+        for (let i = 0;i<9;i++){
+            gameBoard.updateGameStatus(i,'\u00A0')
+        }
+    }
+    document.querySelector('#resetGame').addEventListener('click',()=>resetCells())
+})();
+
 const player = (name,number) =>{
     const setPlayerName = function (playerNumber) {
         document.querySelector(`#player${playerNumber}Name`).textContent = this.name;
