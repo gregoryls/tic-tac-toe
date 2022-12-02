@@ -68,6 +68,10 @@ const gameBoard = (() =>{
 
     const getGameOverStatus = () => gameOver
     
+    const restartGame = () => {
+        if (gameStatus === ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
+        '\u00A0','\u00A0','\u00A0','\u00A0']) gameOver = false;
+    }
     
     return {
         renderGame,
@@ -75,6 +79,7 @@ const gameBoard = (() =>{
         getWinningPositions,
         checkGameWin,
         getGameOverStatus,
+        restartGame,
     }
 })();
 
@@ -165,12 +170,17 @@ const gameplay = (() => {
 })();
 
 const resetGame = (()=>{
+    //resets the board with whitespace characters
     const resetCells = ()=>{
         for (let i = 0;i<9;i++){
             gameBoard.updateGameStatus(i,'\u00A0')
         }
     }
-    document.querySelector('#resetGame').addEventListener('click',()=>resetCells())
+    document.querySelector('#resetGame').addEventListener('click',()=>{
+        resetCells();
+        gameBoard.restartGame();
+        //TODO reset takensquare tracker and current token
+    })
 })();
 
 const player = (name,number) =>{
