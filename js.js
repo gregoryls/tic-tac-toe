@@ -20,21 +20,21 @@ const gameBoard = (() =>{
 
     
     const getWinningPositions = () => {
-        const winningPositions = [
+        // const winningPositions = [];
         //rows
-        [gameStatus[0],gameStatus[1],gameStatus[2]],
-        [gameStatus[3],gameStatus[4],gameStatus[5]],
-        [gameStatus[6],gameStatus[7],gameStatus[8]],
+        const x1 = [gameStatus[0],gameStatus[1],gameStatus[2]]
+        const x2 = [gameStatus[3],gameStatus[4],gameStatus[5]]
+        const x3 = [gameStatus[6],gameStatus[7],gameStatus[8]]
 
         //columns
-        [gameStatus[0],gameStatus[3],gameStatus[6]],
-        [gameStatus[1],gameStatus[4],gameStatus[7]],
-        [gameStatus[2],gameStatus[5],gameStatus[8]],
+        const y1 = [gameStatus[0],gameStatus[3],gameStatus[6]]
+        const y2 = [gameStatus[1],gameStatus[4],gameStatus[7]]
+        const y3 = [gameStatus[2],gameStatus[5],gameStatus[8]]
 
         //diagonals
-        [gameStatus[0],gameStatus[4],gameStatus[8]],
-        [gameStatus[2],gameStatus[4],gameStatus[6]],
-        ];
+        const d1 = [gameStatus[0],gameStatus[4],gameStatus[8]]
+        const d2 = [gameStatus[2],gameStatus[4],gameStatus[6]]
+        const winningPositions = [x1,x2,x3,y1,y2,y3,d1,d2];
 
         // console.log(gameStatus)
         // console.log(winningPositions);
