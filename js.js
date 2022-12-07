@@ -96,6 +96,9 @@ const gameplay = (() => {
             return 'O';
         }
     }
+    const setCurrentToken = (token) =>{
+        currentToken = token;
+    }
     const resetTakenSquareTraker = () =>{
         takenSquareTracker = [];
     }
@@ -169,6 +172,7 @@ const gameplay = (() => {
     return{
         currentPlayer,
         resetTakenSquareTraker,
+        setCurrentToken,
     }
 
 })();
@@ -182,9 +186,12 @@ const resetGame = (()=>{
     }
     document.querySelector('#resetGame').addEventListener('click',()=>{
         resetCells();
+        gameplay.setCurrentToken('X');
         gameplay.resetTakenSquareTraker();
         gameBoard.restartGame();
-        //TODO reset takensquare tracker and current token
+        //TODO test reset of takensquare tracker and current token
+        //TODO consider if there are less 'cheatable' ways to reset
+        //the tracker and token.
     })
 })();
 
