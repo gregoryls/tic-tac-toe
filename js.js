@@ -96,6 +96,9 @@ const gameplay = (() => {
             return 'O';
         }
     }
+    const resetTakenSquareTraker = () =>{
+        takenSquareTracker = [];
+    }
     const gametest = document.querySelectorAll('#board div');
 
     gametest.forEach( (currentValue)=>{
@@ -165,6 +168,7 @@ const gameplay = (() => {
 
     return{
         currentPlayer,
+        resetTakenSquareTraker,
     }
 
 })();
@@ -178,6 +182,7 @@ const resetGame = (()=>{
     }
     document.querySelector('#resetGame').addEventListener('click',()=>{
         resetCells();
+        gameplay.resetTakenSquareTraker();
         gameBoard.restartGame();
         //TODO reset takensquare tracker and current token
     })
