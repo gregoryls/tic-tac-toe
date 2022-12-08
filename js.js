@@ -3,6 +3,10 @@ const gameBoard = (() =>{
         '\u00A0','\u00A0','\u00A0','\u00A0'];
 
     let gameOver = false;
+
+    const setGameOverStatus = (bool) =>{
+        gameOver = bool;
+    }
     
     const renderGame = () =>{
         
@@ -74,6 +78,7 @@ const gameBoard = (() =>{
     }
     
     return {
+        setGameOverStatus,
         renderGame,
         updateGameStatus,
         getWinningPositions,
@@ -188,6 +193,7 @@ const resetGame = (()=>{
         resetCells();
         gameplay.setCurrentToken('X');
         gameplay.resetTakenSquareTraker();
+        gameBoard.setGameOverStatus(false);
         gameBoard.restartGame();
         //TODO test reset of takensquare tracker and current token
         //TODO consider if there are less 'cheatable' ways to reset
