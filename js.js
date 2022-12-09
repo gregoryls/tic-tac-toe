@@ -47,26 +47,51 @@ const gameBoard = (() =>{
     //TODO work on game-end logic (wins counter, draw victory line etc);
     const checkGameWin = () =>{
         
-        getWinningPositions().forEach(position => {
-            //check if a set winning position is all 'X' or 'O' excluding the blank character
-            const win = position.every(token => token === position[0] && token != '\u00A0');
-            // console.log(win);
-            // console.log(typeof(win));
-            if (win) {
-                if (position[0] === 'X'){
+        const winningPositions = getWinningPositions();
+        for (let i =0;i<8;i++){
+            const win2 = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
+            if (win2) {
+                // console.log(position.forEach(element =>{
+                //     element.closest('div');
+                // })                    )
+                if (winningPositions[i][0] === 'X'){
                     player1.wins +=1;
                     document.querySelector('#player1Wins').textContent = player1.wins
                 } 
-                if (position[0] === 'O'){
+                if (winningPositions[i][0] === 'O'){
                     player2.wins +=1;
                     document.querySelector('#player2Wins').textContent = player2.wins
                 } 
                 console.log('yay');
-                console.log(win);
+                // console.log(win);
                 gameOver = true;
-                console.log(gameOver);
-            }
-        })
+        }
+
+        // getWinningPositions().forEach(position => {
+        //     //TODO change foreach to for i=0... then if statements for each i case
+        //     //check if a set winning position is all 'X' or 'O' excluding the blank character
+        //     const win = position.every(token => token === position[0] && token != '\u00A0');
+        //     // console.log(win);
+        //     // console.log(typeof(win));
+        //     if (win) {
+        //         console.log(position.forEach(element =>{
+        //             element.closest('div');
+        //         })                    )
+        //         if (position[0] === 'X'){
+        //             player1.wins +=1;
+        //             document.querySelector('#player1Wins').textContent = player1.wins
+        //         } 
+        //         if (position[0] === 'O'){
+        //             player2.wins +=1;
+        //             document.querySelector('#player2Wins').textContent = player2.wins
+        //         } 
+        //         console.log('yay');
+        //         // console.log(win);
+        //         gameOver = true;
+        //         // console.log(gameOver);
+        //     }
+        // })
+    }
         
     }
 
@@ -178,6 +203,7 @@ const gameplay = (() => {
         currentPlayer,
         resetTakenSquareTraker,
         setCurrentToken,
+        takenSquareTracker, //testing, remove later;
     }
 
 })();
