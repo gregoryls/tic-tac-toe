@@ -45,11 +45,15 @@ const gameBoard = (() =>{
         return winningPositions;
     }
     //TODO work on game-end logic (wins counter, draw victory line etc);
+    //TODO draw line based on winningPosition in forloop (probably ifs for each case (maybe switch))
+    //TODO add logic for a drawn game!!!
     const checkGameWin = () =>{
         
         const winningPositions = getWinningPositions();
         for (let i =0;i<8;i++){
+            //check if a set winning position is all 'X' or 'O' excluding the blank character
             const win2 = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
+            //change to 'win' when fully working
             if (win2) {
                 // console.log(position.forEach(element =>{
                 //     element.closest('div');
@@ -146,6 +150,7 @@ const gameplay = (() => {
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 takenSquareTracker.push(0);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) console.log('draw');
                 break;
             case 'cell2':
                 if (takenSquareTracker.includes(1) || gameBoard.getGameOverStatus()) break;
