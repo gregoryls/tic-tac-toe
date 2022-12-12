@@ -1,4 +1,6 @@
 const gameBoard = (() =>{
+    const gameCells = document.querySelectorAll('.cell');
+    console.log(gameCells)
     let gameStatus = ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
         '\u00A0','\u00A0','\u00A0','\u00A0'];
 
@@ -55,9 +57,21 @@ const gameBoard = (() =>{
             const win2 = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
             //change to 'win' when fully working
             if (win2) {
-                // console.log(position.forEach(element =>{
-                //     element.closest('div');
-                // })                    )
+                 //switch statement adds css class to apply 'victory' line over appropriate cells.
+                switch (i){
+                    case 0:
+                        for (let j = 0;j<3;j++){
+                            gameCells[j].classList.add('horizontalWin');
+                        } break;
+                    case 1:
+                        for (let j = 3;j<6;j++){
+                            gameCells[j].classList.add('horizontalWin');
+                        } break;
+                    case 2:
+                        for (let j = 6;j<9;j++){
+                            gameCells[j].classList.add('horizontalWin');
+                        } break;
+                }                
                 if (winningPositions[i][0] === 'X'){
                     player1.wins +=1;
                     document.querySelector('#player1Wins').textContent = player1.wins
@@ -150,6 +164,7 @@ const gameplay = (() => {
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 takenSquareTracker.push(0);
                 gameBoard.checkGameWin();
+                //if statement checks for a draw with full board and no win
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) console.log('draw');
                 break;
             case 'cell2':
