@@ -59,6 +59,7 @@ const gameBoard = (() =>{
             if (win2) {
                  //switch statement adds css class to apply 'victory' line over appropriate cells.
                 switch (i){
+                    //horizontal wins 0-2
                     case 0:
                         for (let j = 0;j<3;j++){
                             gameCells[j].classList.add('horizontalWin');
@@ -70,6 +71,19 @@ const gameBoard = (() =>{
                     case 2:
                         for (let j = 6;j<9;j++){
                             gameCells[j].classList.add('horizontalWin');
+                        } break;
+                    //vertical wins 3-5
+                    case 3:
+                        for (let j = 0;j<8;j+=3){
+                            gameCells[j].classList.add('verticalWin');
+                        } break;
+                    case 4:
+                        for (let j = 1;j<8;j+=3){
+                            gameCells[j].classList.add('verticalWin');
+                        } break;
+                    case 5:
+                        for (let j = 2;j<8;j+=3){
+                            gameCells[j].classList.add('verticalWin');
                         } break;
                 }                
                 if (winningPositions[i][0] === 'X'){
