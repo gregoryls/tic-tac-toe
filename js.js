@@ -85,6 +85,15 @@ const gameBoard = (() =>{
                         for (let j = 2;j<8;j+=3){
                             gameCells[j].classList.add('verticalWin');
                         } break;
+                       //diagonal wins 6-7 
+                    case 6:
+                        for (let j = 0;j<8;j+=4){
+                            gameCells[j].classList.add('diagonalWin');
+                        } break;
+                    case 7:
+                        for (let j = 2;j<8;j+=2){
+                            gameCells[j].classList.add('diagonalWin');
+                        } break;
                 }                
                 if (winningPositions[i][0] === 'X'){
                     player1.wins +=1;
