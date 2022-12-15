@@ -1,3 +1,5 @@
+//TODO make name change look nicer
+
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
     console.log(gameCells)
