@@ -24,6 +24,9 @@ h1 {
      cursor: pointer;
 
  }
+ #gridHelp h3{
+     cursor: pointer;
+ }
 
 .horizontalWin{
     background: 

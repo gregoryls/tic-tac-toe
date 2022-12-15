@@ -1,4 +1,4 @@
-//TODO make name change look nicer
+//TODO make modal
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
