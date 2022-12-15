@@ -292,7 +292,9 @@ const playerSetup = (() => {
     player1.setPlayerName(1);
     player2.setPlayerName(2);
     const userName = (player) =>{
+        let tempName = player.name;
         player.name = prompt('Please Enter your name','Josh Gunson');
+        if (player.name === null) player.name = tempName;
         player.setPlayerName(player.number);
     }
     document.querySelector('#player1Name').addEventListener('click',() =>{
