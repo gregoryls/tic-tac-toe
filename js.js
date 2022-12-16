@@ -294,6 +294,7 @@ const playerSetup = (() => {
     const userName = (player) =>{
         let tempName = player.name;
         player.name = prompt('Please Enter your name','Josh Gunson');
+        //prevent player name from disappearing by using previous name
         if (player.name === null) player.name = tempName;
         player.setPlayerName(player.number);
     }
