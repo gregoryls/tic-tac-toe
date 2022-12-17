@@ -1,4 +1,4 @@
-//TODO make modal
+//TODO button event listeners to open and close modal, probably in it's own iife
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
@@ -309,3 +309,13 @@ const playerSetup = (() => {
 // read this ^^^
 // TODO - consider a modal with instructions, how to change name etc.
 
+const helpModal = (()=>{
+    const openModalButton = document.querySelector('#helpModal');
+    const modal = document.querySelector('.modal')
+
+    const removeClass = (element,className) =>{
+        element.classList.remove(className);
+    }
+
+    openModalButton.addEventListener('click',()=>removeClass(modal,'hidden'))
+})();
