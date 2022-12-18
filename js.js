@@ -311,11 +311,15 @@ const playerSetup = (() => {
 
 const helpModal = (()=>{
     const openModalButton = document.querySelector('#helpModal');
-    const modal = document.querySelector('.modal')
+    const modal = document.querySelector('.modal');
+    const overlay = document.querySelector('.overlay');
 
     const removeClass = (element,className) =>{
         element.classList.remove(className);
     }
 
-    openModalButton.addEventListener('click',()=>removeClass(modal,'hidden'))
+    openModalButton.addEventListener('click',()=> {
+        removeClass(modal,'hidden');
+        removeClass(overlay,'hidden');
+    });
 })();
