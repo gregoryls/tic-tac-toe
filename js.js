@@ -1,5 +1,6 @@
 //TODO button event listeners to open and close modal, probably in it's own iife
-
+//TODO add logic for a drawn game!!!
+//TODO un-draw victory lines
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
     console.log(gameCells)
@@ -48,9 +49,9 @@ const gameBoard = (() =>{
         // console.log(winningPositions);
         return winningPositions;
     }
-    //TODO work on game-end logic (wins counter, draw victory line etc);
-    //TODO draw line based on winningPosition in forloop (probably ifs for each case (maybe switch))
-    //TODO add logic for a drawn game!!!
+    
+    
+    
     const checkGameWin = () =>{
         
         const winningPositions = getWinningPositions();
@@ -110,30 +111,7 @@ const gameBoard = (() =>{
                 gameOver = true;
         }
 
-        // getWinningPositions().forEach(position => {
-        //     //TODO change foreach to for i=0... then if statements for each i case
-        //     //check if a set winning position is all 'X' or 'O' excluding the blank character
-        //     const win = position.every(token => token === position[0] && token != '\u00A0');
-        //     // console.log(win);
-        //     // console.log(typeof(win));
-        //     if (win) {
-        //         console.log(position.forEach(element =>{
-        //             element.closest('div');
-        //         })                    )
-        //         if (position[0] === 'X'){
-        //             player1.wins +=1;
-        //             document.querySelector('#player1Wins').textContent = player1.wins
-        //         } 
-        //         if (position[0] === 'O'){
-        //             player2.wins +=1;
-        //             document.querySelector('#player2Wins').textContent = player2.wins
-        //         } 
-        //         console.log('yay');
-        //         // console.log(win);
-        //         gameOver = true;
-        //         // console.log(gameOver);
-        //     }
-        // })
+        
     }
         
     }
@@ -266,7 +244,7 @@ const resetGame = (()=>{
         gameplay.resetTakenSquareTraker();
         gameBoard.setGameOverStatus(false);
         gameBoard.restartGame();
-        //TODO test reset of takensquare tracker and current token
+       
         //TODO consider if there are less 'cheatable' ways to reset
         //the tracker and token.
     })
@@ -305,9 +283,7 @@ const playerSetup = (() => {
         userName(player2)
     });
 })();
-// https://www.google.com/search?client=firefox-b-1-d&q=js+change+variable+inside+iife 
-// read this ^^^
-// TODO - consider a modal with instructions, how to change name etc.
+
 
 const helpModal = (()=>{
     const openModalButton = document.querySelector('#helpModal');
