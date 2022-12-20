@@ -318,6 +318,15 @@ const helpModal = (()=>{
         element.classList.remove(className);
     }
 
+    const addClass = (element,className) =>{
+        element.classList.add(className);
+    }
+
+    overlay.addEventListener('click', ()=>{
+        addClass(modal,'hidden');
+        addClass(overlay,'hidden');
+    });
+
     openModalButton.addEventListener('click',()=> {
         removeClass(modal,'hidden');
         removeClass(overlay,'hidden');
