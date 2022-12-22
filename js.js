@@ -122,6 +122,11 @@ const gameBoard = (() =>{
         if (gameStatus === ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
         '\u00A0','\u00A0','\u00A0','\u00A0']) gameOver = false;
     }
+    const removeVictoryLine = () =>{
+        gameCells.forEach(cell => {
+            cell.classList.remove('diagonalWin','verticalWin','horizontalWin')
+        });
+    }
     
     return {
         setGameOverStatus,
@@ -131,6 +136,7 @@ const gameBoard = (() =>{
         checkGameWin,
         getGameOverStatus,
         restartGame,
+        removeVictoryLine,
     }
 })();
 
@@ -242,6 +248,7 @@ const resetGame = (()=>{
         resetCells();
         gameplay.setCurrentToken('X');
         gameplay.resetTakenSquareTraker();
+        gameBoard.removeVictoryLine();
         gameBoard.setGameOverStatus(false);
         gameBoard.restartGame();
        
