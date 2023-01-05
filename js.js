@@ -1,6 +1,6 @@
 //TODO button event listeners to open and close modal, probably in it's own iife
 //TODO add logic for a drawn game!!!
-//TODO un-draw victory lines
+
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
     console.log(gameCells)
@@ -174,7 +174,15 @@ const gameplay = (() => {
                 takenSquareTracker.push(0);
                 gameBoard.checkGameWin();
                 //if statement checks for a draw with full board and no win
-                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) console.log('draw');
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) {
+                    console.log('draw');
+                    let drawP = document.createElement('p');
+                    let resetButton = document.querySelector('#resetGame');
+                    let parent = resetButton.parentNode
+                    parent.insertBefore(drawP, resetButton);
+
+
+                };
                 break;
             case 'cell2':
                 if (takenSquareTracker.includes(1) || gameBoard.getGameOverStatus()) break;
