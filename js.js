@@ -159,8 +159,22 @@ const gameplay = (() => {
     const resetTakenSquareTraker = () =>{
         takenSquareTracker = [];
     }
-    const gametest = document.querySelectorAll('#board div');
 
+    const deleteNode = (parentElementID,index) =>{
+        parent = document.getElementById(`${parentElementID}`);
+        children = parent.childNodes;
+        let temp = [];
+        for (let i = 0;i<children.length;i++){
+            if (children[i].nodeType === 3) children[i].remove();
+        }
+        children[index].remove();
+
+        // console.log(parent.firstChild)
+        // parent.removeChild(parent.firstChild);
+    }
+
+//TODO rename gametest
+    const gametest = document.querySelectorAll('#board div');
     gametest.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
         let gameCell = currentValue.closest('div');
@@ -182,7 +196,7 @@ const gameplay = (() => {
                     drawP.textContent = 'Draw';
                     parent.insertBefore(drawP, resetButton);
 // TODO change reset dive to flex/grid for vert alignment, 
-//append draw text to p, remove p on reset
+//, remove p on reset
 
                 };
                 break;
@@ -242,6 +256,7 @@ const gameplay = (() => {
         currentPlayer,
         resetTakenSquareTraker,
         setCurrentToken,
+        deleteNode,
         takenSquareTracker, //testing, remove later;
     }
 
@@ -258,9 +273,12 @@ const resetGame = (()=>{
         resetCells();
         gameplay.setCurrentToken('X');
         gameplay.resetTakenSquareTraker();
+        
         gameBoard.removeVictoryLine();
         gameBoard.setGameOverStatus(false);
         gameBoard.restartGame();
+        gameplay.deleteNode('resetDiv',0);
+        
        
         //TODO consider if there are less 'cheatable' ways to reset
         //the tracker and token.
