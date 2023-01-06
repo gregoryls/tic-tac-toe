@@ -180,7 +180,8 @@ const gameplay = (() => {
                     let resetButton = document.querySelector('#resetGame');
                     let parent = resetButton.parentNode
                     parent.insertBefore(drawP, resetButton);
-
+// TODO change reset dive to flex/grid for vert alignment, 
+//append draw text to p, remove p on reset
 
                 };
                 break;
