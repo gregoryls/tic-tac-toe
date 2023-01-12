@@ -176,7 +176,16 @@ const gameplay = (() => {
 
     }
 
-//TODO rename gametest
+    const endGameMessage = (text) => {
+        console.log(text);
+        let drawP = document.createElement('p');
+        let resetButton = document.querySelector('#resetGame');
+        let parent = resetButton.parentNode;
+        drawP.textContent = text;
+        parent.insertBefore(drawP, resetButton);
+    };
+
+    //TODO rename gametest
     const gametest = document.querySelectorAll('#board div');
     gametest.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
@@ -191,17 +200,7 @@ const gameplay = (() => {
                 takenSquareTracker.push(0);
                 gameBoard.checkGameWin();
                 //if statement checks for a draw with full board and no win
-                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) {
-                    console.log('draw');
-                    let drawP = document.createElement('p');
-                    let resetButton = document.querySelector('#resetGame');
-                    let parent = resetButton.parentNode;
-                    drawP.textContent = 'Draw';
-                    parent.insertBefore(drawP, resetButton);
-// TODO change reset dive to flex/grid for vert alignment, 
-//, remove p on reset
-
-                };
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell2':
                 if (takenSquareTracker.includes(1) || gameBoard.getGameOverStatus()) break;
