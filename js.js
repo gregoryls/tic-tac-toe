@@ -160,23 +160,20 @@ const gameplay = (() => {
         takenSquareTracker = [];
     }
 
-    const deleteNode = (parentElementID,index) =>{
-        //TODO clean this up + add comments, 
+    const deleteNode = (parentElementID,index) =>{ 
         //TODO give a player name win message as well
-        
+        //Deletes a child node at given index on the given parent node
         parentNode = document.getElementById(`${parentElementID}`);
         
         children = parentNode.childNodes;
-        let temp = [];
+        //loop removes text nodes, in this case empty whitespace
         for (let i = 0;i<children.length;i++){
             if (children[i].nodeType === 3) children[i].remove();
         }
-        //end function only if one thing (the reset button) remains in the div
+        //end function if one thing (the reset button) remains in the div
         if (children.length < 2) return; 
         children[index].remove();
 
-        // console.log(parent.firstChild)
-        // parent.removeChild(parent.firstChild);
     }
 
 //TODO rename gametest
