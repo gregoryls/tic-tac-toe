@@ -161,16 +161,17 @@ const gameplay = (() => {
     }
 
     const deleteNode = (parentElementID,index) =>{
-        //TODO clean this up + add comments, don't remove if children is length 1
+        //TODO clean this up + add comments, 
         //TODO give a player name win message as well
-        //TD check to see if queryselectorall has the same whitespace problem
-        parent = document.getElementById(`${parentElementID}`);
-        children = parent.childNodes;
+        
+        parentNode = document.getElementById(`${parentElementID}`);
+        
+        children = parentNode.childNodes;
         let temp = [];
         for (let i = 0;i<children.length;i++){
             if (children[i].nodeType === 3) children[i].remove();
         }
-        //end function if only the reset button remains in the div
+        //end function only if one thing (the reset button) remains in the div
         if (children.length < 2) return; 
         children[index].remove();
 
