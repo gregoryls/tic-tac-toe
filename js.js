@@ -101,10 +101,12 @@ const gameBoard = (() =>{
                 if (winningPositions[i][0] === 'X'){
                     player1.wins +=1;
                     document.querySelector('#player1Wins').textContent = player1.wins
+                    gameplay.endGameMessage(`${player1.name} wins!`);
                 } 
                 if (winningPositions[i][0] === 'O'){
                     player2.wins +=1;
                     document.querySelector('#player2Wins').textContent = player2.wins
+                    gameplay.endGameMessage(`${player2.name} wins!`);
                 } 
                 console.log('yay');
                 // console.log(win);
@@ -268,6 +270,7 @@ const gameplay = (() => {
         resetTakenSquareTraker,
         setCurrentToken,
         deleteNode,
+        endGameMessage,
         takenSquareTracker, //testing, remove later;
     }
 
