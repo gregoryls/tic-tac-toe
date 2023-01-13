@@ -177,14 +177,15 @@ const gameplay = (() => {
     }
 
     const endGameMessage = (text) => {
+        //this function will insert a supplied text string above the reset button, below the game board.
         console.log(text);
-        let drawP = document.createElement('p');
+        let p = document.createElement('p');
         let resetButton = document.querySelector('#resetGame');
         let parent = resetButton.parentNode;
-        drawP.textContent = text;
-        parent.insertBefore(drawP, resetButton);
+        p.textContent = text;
+        parent.insertBefore(p, resetButton);
     };
-    //TODO copy draw onto each cell, rename stuff inside message function, apply to wins
+    //TODO  apply end message to wins
     //TODO rename gametest
     const gametest = document.querySelectorAll('#board div');
     gametest.forEach( (currentValue)=>{
@@ -207,48 +208,56 @@ const gameplay = (() => {
                 gameBoard.updateGameStatus(1,gameplay.currentPlayer());
                 takenSquareTracker.push(1);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell3':
                 if (takenSquareTracker.includes(2) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(2,gameplay.currentPlayer());
                 takenSquareTracker.push(2);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell4':
                 if (takenSquareTracker.includes(3) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(3,gameplay.currentPlayer());
                 takenSquareTracker.push(3);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell5':
                 if (takenSquareTracker.includes(4) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(4,gameplay.currentPlayer());
                 takenSquareTracker.push(4);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell6':
                 if (takenSquareTracker.includes(5) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(5,gameplay.currentPlayer());
                 takenSquareTracker.push(5);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell7':
                 if (takenSquareTracker.includes(6) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(6,gameplay.currentPlayer());
                 takenSquareTracker.push(6);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell8':
                 if (takenSquareTracker.includes(7) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(7,gameplay.currentPlayer());
                 takenSquareTracker.push(7);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell9':
                 if (takenSquareTracker.includes(8) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(8,gameplay.currentPlayer());
                 takenSquareTracker.push(8);
                 gameBoard.checkGameWin();
+                if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
         }
     });
