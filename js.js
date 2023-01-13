@@ -77,25 +77,25 @@ const gameBoard = (() =>{
                         } break;
                     //vertical wins 3-5
                     case 3:
-                        for (let j = 0;j<8;j+=3){
+                        for (let j = 0;j<9;j+=3){
                             gameCells[j].classList.add('verticalWin');
                         } break;
                     case 4:
-                        for (let j = 1;j<8;j+=3){
+                        for (let j = 1;j<9;j+=3){
                             gameCells[j].classList.add('verticalWin');
                         } break;
                     case 5:
-                        for (let j = 2;j<8;j+=3){
+                        for (let j = 2;j<9;j+=3){
                             gameCells[j].classList.add('verticalWin');
                         } break;
                        //diagonal wins 6-7 
                     case 6:
-                        for (let j = 0;j<8;j+=4){
-                            gameCells[j].classList.add('diagonalWin');
+                        for (let j = 0;j<9;j+=4){
+                            gameCells[j].classList.add('diagonalWinRight');
                         } break;
                     case 7:
                         for (let j = 2;j<8;j+=2){
-                            gameCells[j].classList.add('diagonalWin');
+                            gameCells[j].classList.add('diagonalWinLeft');
                         } break;
                 }                
                 if (winningPositions[i][0] === 'X'){
@@ -163,11 +163,10 @@ const gameplay = (() => {
     }
 
     const deleteNode = (parentElementID,index) =>{ 
-        //TODO give a player name win message as well
         //Deletes a child node at given index on the given parent node
         parentNode = document.getElementById(`${parentElementID}`);
-        
         children = parentNode.childNodes;
+
         //loop removes text nodes, in this case empty whitespace
         for (let i = 0;i<children.length;i++){
             if (children[i].nodeType === 3) children[i].remove();
@@ -187,7 +186,6 @@ const gameplay = (() => {
         p.textContent = text;
         parent.insertBefore(p, resetButton);
     };
-    //TODO  apply end message to wins
     //TODO rename gametest
     const gametest = document.querySelectorAll('#board div');
     gametest.forEach( (currentValue)=>{

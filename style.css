@@ -46,9 +46,18 @@ h1 {
         rgba(0,0,0,0) calc(50% + 2px),
         rgba(0,0,0,0) 100%);
 }
-.diagonalWin{
+.diagonalWinLeft{
     background: 
     linear-gradient(to top left,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0) calc(50% - 2px),
+        rgba(0,0,0,1) 50%,
+        rgba(0,0,0,0) calc(50% + 2px),
+        rgba(0,0,0,0) 100%);
+}
+.diagonalWinRight{
+    background: 
+    linear-gradient(to top right,
         rgba(0,0,0,0) 0%,
         rgba(0,0,0,0) calc(50% - 2px),
         rgba(0,0,0,1) 50%,
