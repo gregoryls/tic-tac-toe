@@ -126,7 +126,7 @@ const gameBoard = (() =>{
     }
     const removeVictoryLine = () =>{
         gameCells.forEach(cell => {
-            cell.classList.remove('diagonalWin','verticalWin','horizontalWin')
+            cell.classList.remove('diagonalWinLeft','diagonalWinRight','verticalWin','horizontalWin')
         });
     }
     
