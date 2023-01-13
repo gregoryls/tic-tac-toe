@@ -184,7 +184,7 @@ const gameplay = (() => {
         drawP.textContent = text;
         parent.insertBefore(drawP, resetButton);
     };
-
+    //TODO copy draw onto each cell, rename stuff inside message function, apply to wins
     //TODO rename gametest
     const gametest = document.querySelectorAll('#board div');
     gametest.forEach( (currentValue)=>{
