@@ -186,9 +186,9 @@ const gameplay = (() => {
         p.textContent = text;
         parent.insertBefore(p, resetButton);
     };
-    //TODO rename gametest
-    const gametest = document.querySelectorAll('#board div');
-    gametest.forEach( (currentValue)=>{
+    
+    const gameCells = document.querySelectorAll('#board div');
+    gameCells.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
         let gameCell = currentValue.closest('div');
         console.log(gameCell.id);
