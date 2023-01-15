@@ -3,7 +3,6 @@
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
-    console.log(gameCells)
     let gameStatus = ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
         '\u00A0','\u00A0','\u00A0','\u00A0'];
 
@@ -45,8 +44,6 @@ const gameBoard = (() =>{
         [gameStatus[2],gameStatus[4],gameStatus[6]],
         ];
 
-        // console.log(gameStatus)
-        // console.log(winningPositions);
         return winningPositions;
     }
     
@@ -108,8 +105,8 @@ const gameBoard = (() =>{
                     document.querySelector('#player2Wins').textContent = player2.wins
                     gameplay.endGameMessage(`${player2.name} wins!`);
                 } 
-                console.log('yay');
-                // console.log(win);
+                
+                
                 gameOver = true;
         }
 
@@ -191,7 +188,6 @@ const gameplay = (() => {
     gameCells.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
         let gameCell = currentValue.closest('div');
-        console.log(gameCell.id);
 
         switch (gameCell.id){
             //cells check if already occupied or if the game has been won before accepting token
@@ -311,8 +307,6 @@ const player1 = player('john doe',1);
 
 const player2 = player('jane doe',2);
 
-// gameBoard.gameStatus = [1,1,1,1,1,1,1,1,1]
-// gameBoard.renderGame([1,1,1,1,1,1,1,1,1]);
 const playerSetup = (() => {
     player1.setPlayerName(1);
     player2.setPlayerName(2);
