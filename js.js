@@ -269,7 +269,7 @@ const gameplay = (() => {
         setCurrentToken,
         deleteNode,
         endGameMessage,
-        takenSquareTracker, //testing, remove later;
+        
     }
 
 })();
