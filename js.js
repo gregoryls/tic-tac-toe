@@ -1,5 +1,5 @@
 //TODO button event listeners to open and close modal, probably in it's own iife
-//TODO add logic for a drawn game!!!
+//TODO organize code and add any needed comments
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
@@ -303,9 +303,9 @@ const player = (name,number) =>{
 return {name, number, wins, setPlayerName,};
 }
 //TODO consider wrapping this up inside somewhere else
-const player1 = player('john doe',1);
+const player1 = player('Player 1',1);
 
-const player2 = player('jane doe',2);
+const player2 = player('Player 2',2);
 
 const playerSetup = (() => {
     player1.setPlayerName(1);
