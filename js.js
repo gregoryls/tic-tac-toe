@@ -1,8 +1,9 @@
-//TODO button event listeners to open and close modal, probably in it's own iife
+
 //TODO organize code and add any needed comments
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
+    //start the game with a whitespace character in every cell to keep formatting correct
     let gameStatus = ['\u00A0','\u00A0','\u00A0','\u00A0','\u00A0',
         '\u00A0','\u00A0','\u00A0','\u00A0'];
 
@@ -129,7 +130,6 @@ const gameBoard = (() =>{
     
     return {
         setGameOverStatus,
-        renderGame,
         updateGameStatus,
         getWinningPositions,
         checkGameWin,
