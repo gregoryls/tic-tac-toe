@@ -131,7 +131,6 @@ const gameBoard = (() =>{
     return {
         setGameOverStatus,
         updateGameStatus,
-        getWinningPositions,
         checkGameWin,
         getGameOverStatus,
         restartGame,
