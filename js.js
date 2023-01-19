@@ -14,13 +14,14 @@ const gameBoard = (() =>{
     }
     
     const renderGame = () =>{
-        
+        //populate the board from gameStatus array.  Gets called on every cell being filled.
         for (let i=0; i<9; i++){
             document.querySelector(`#cell${i+1}`).textContent = gameStatus[i];
         }
         
     };
     renderGame();
+
     const updateGameStatus = (index,newValue) =>{
         gameStatus[index] = newValue;
         renderGame();
@@ -55,9 +56,9 @@ const gameBoard = (() =>{
         const winningPositions = getWinningPositions();
         for (let i =0;i<8;i++){
             //check if a set winning position is all 'X' or 'O' excluding the blank character
-            const win2 = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
+            const win = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
             //change to 'win' when fully working
-            if (win2) {
+            if (win) {
                  //switch statement adds css class to apply 'victory' line over appropriate cells.
                 switch (i){
                     //horizontal wins 0-2
