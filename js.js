@@ -25,7 +25,7 @@ const gameBoard = (() =>{
     const updateGameStatus = (index,newValue) =>{
         gameStatus[index] = newValue;
         renderGame();
-        //check if game is won function goes here
+        checkGameWin();
     }
 
     
@@ -55,9 +55,9 @@ const gameBoard = (() =>{
         
         const winningPositions = getWinningPositions();
         for (let i =0;i<8;i++){
-            //check if a set winning position is all 'X' or 'O' excluding the blank character
+            //check if a set winning position is all 'X' or 'O' based on current game state, 
+            //excluding the blank character
             const win = winningPositions[i].every(token => token === winningPositions[i][0] && token != '\u00A0');
-            //change to 'win' when fully working
             if (win) {
                  //switch statement adds css class to apply 'victory' line over appropriate cells.
                 switch (i){
@@ -195,7 +195,6 @@ const gameplay = (() => {
                 if (takenSquareTracker.includes(0) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(0,gameplay.currentPlayer());
                 takenSquareTracker.push(0);
-                gameBoard.checkGameWin();
                 //if statement checks for a draw with full board and no win
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
@@ -203,56 +202,48 @@ const gameplay = (() => {
                 if (takenSquareTracker.includes(1) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(1,gameplay.currentPlayer());
                 takenSquareTracker.push(1);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell3':
                 if (takenSquareTracker.includes(2) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(2,gameplay.currentPlayer());
                 takenSquareTracker.push(2);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell4':
                 if (takenSquareTracker.includes(3) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(3,gameplay.currentPlayer());
                 takenSquareTracker.push(3);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell5':
                 if (takenSquareTracker.includes(4) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(4,gameplay.currentPlayer());
                 takenSquareTracker.push(4);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell6':
                 if (takenSquareTracker.includes(5) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(5,gameplay.currentPlayer());
                 takenSquareTracker.push(5);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell7':
                 if (takenSquareTracker.includes(6) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(6,gameplay.currentPlayer());
                 takenSquareTracker.push(6);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell8':
                 if (takenSquareTracker.includes(7) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(7,gameplay.currentPlayer());
                 takenSquareTracker.push(7);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
             case 'cell9':
                 if (takenSquareTracker.includes(8) || gameBoard.getGameOverStatus()) break;
                 gameBoard.updateGameStatus(8,gameplay.currentPlayer());
                 takenSquareTracker.push(8);
-                gameBoard.checkGameWin();
                 if (takenSquareTracker.length === 9 && !gameBoard.getGameOverStatus()) endGameMessage('draw');
                 break;
         }
