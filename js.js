@@ -1,5 +1,6 @@
 
 //TODO organize code and add any needed comments
+//TODO center horizontal 4,5,6 wins (esp player 2) seems to spawn too many win messages.  
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
@@ -52,7 +53,8 @@ const gameBoard = (() =>{
     
     
     const checkGameWin = () =>{
-        
+        //check if gameOver is true to avoid issues during reset
+        if (gameOver === true) return;
         const winningPositions = getWinningPositions();
         for (let i =0;i<8;i++){
             //check if a set winning position is all 'X' or 'O' based on current game state, 
