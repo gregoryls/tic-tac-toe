@@ -1,6 +1,6 @@
 
 //TODO organize code and add any needed comments
-//TODO center horizontal 4,5,6 wins (esp player 2) seems to spawn too many win messages.  
+ 
 
 const gameBoard = (() =>{
     const gameCells = document.querySelectorAll('.cell');
@@ -24,6 +24,7 @@ const gameBoard = (() =>{
     renderGame();
 
     const updateGameStatus = (index,newValue) =>{
+        //game cells count top left to bottom right, indexed at 0
         gameStatus[index] = newValue;
         renderGame();
         checkGameWin();
@@ -31,6 +32,7 @@ const gameBoard = (() =>{
 
     
     const getWinningPositions = () => {
+        //returns the current symbols played for each of the 8 winning tictactoe positions
         const winningPositions = [
         //rows
         [gameStatus[0],gameStatus[1],gameStatus[2]],
@@ -145,6 +147,7 @@ const gameplay = (() => {
     let takenSquareTracker = [];
     let currentToken = 'X';
     const currentPlayer = () => {
+        //returns the current token to fill in the game cell, then flips current token to the other value
         if (currentToken === 'X'){
             currentToken = 'O';
             return 'X';
@@ -186,6 +189,7 @@ const gameplay = (() => {
         parent.insertBefore(p, resetButton);
     };
     
+    //add gameplay-based event listeners to every game cell
     const gameCells = document.querySelectorAll('#board div');
     gameCells.forEach( (currentValue)=>{
     currentValue.addEventListener('click', () =>{
