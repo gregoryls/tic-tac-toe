@@ -289,6 +289,7 @@ const resetGame = (()=>{
     })
 })();
 
+//Factory for creating player objects, number is for player number, 1 or 2
 const player = (name,number) =>{
     const setPlayerName = function (playerNumber) {
         document.querySelector(`#player${playerNumber}Name`).textContent = this.name;
@@ -298,14 +299,15 @@ const player = (name,number) =>{
     this.number = number;
 return {name, number, wins, setPlayerName,};
 }
-//TODO consider wrapping this up inside somewhere else
+//Initialize the two player objects
 const player1 = player('Player 1',1);
-
 const player2 = player('Player 2',2);
 
 const playerSetup = (() => {
+    //set default usernames
     player1.setPlayerName(1);
     player2.setPlayerName(2);
+    //allow players to change their displayed name
     const userName = (player) =>{
         let tempName = player.name;
         player.name = prompt('Please Enter your name','Josh Gunson');
@@ -323,6 +325,7 @@ const playerSetup = (() => {
 
 
 const helpModal = (()=>{
+    //create a modal that contains general help information on playing the game
     const openModalButton = document.querySelector('#helpModal');
     const modal = document.querySelector('.modal');
     const overlay = document.querySelector('.overlay');
@@ -334,7 +337,8 @@ const helpModal = (()=>{
     const addClass = (element,className) =>{
         element.classList.add(className);
     }
-
+    //overlay provides a semi-transparent blur behind the modal to help focus attention on modal
+    //when the overlay background is clicked anywhere, the modal regains the hidden class and disappears
     overlay.addEventListener('click', ()=>{
         addClass(modal,'hidden');
         addClass(overlay,'hidden');
