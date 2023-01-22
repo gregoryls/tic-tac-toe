@@ -1,5 +1,5 @@
 
-//TODO organize code and add any needed comments
+//TODO add ai
  
 
 const gameBoard = (() =>{
